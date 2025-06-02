@@ -12,7 +12,7 @@ dependencies = [
 ]
 
 [project.scripts]
-repro = "repro:main"
+repro = "repro.main:app"
 
 [build-system]
 requires = ["hatchling"]

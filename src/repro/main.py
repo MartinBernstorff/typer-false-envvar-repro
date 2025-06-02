@@ -6,10 +6,13 @@ import typer
 
 log = logging.getLogger(__name__)
 
+app = typer.Typer()
+
+@app.command()
 def main(
-    force: Annotated[bool, typer.Option(envvar="FORCE")] = False,
+    force: Annotated[bool, typer.Option(envvar="FORCE")],
 ):
-    log.info({"input_arg": force, "input_env": os.getenv("INPUT")})
+    print({"input_arg": force, "input_env": os.getenv("FORCE")})
     match force:
         case True:
             log.error("ERROR: Input is Truthy")
@@ -17,4 +20,4 @@ def main(
             log.info("Input is Falsey")
 
 if __name__ == "__main__":
-    typer.run(main)
+    app()
