@@ -10,7 +10,7 @@ app = typer.Typer()
 
 @app.command()
 def main(
-    force: Annotated[bool, typer.Option(envvar="FORCE")],
+    force: Annotated[bool, typer.Option(envvar="FORCE")] = False,
 ):
     print({"input_arg": force, "input_env": os.getenv("FORCE")})
     match force:
